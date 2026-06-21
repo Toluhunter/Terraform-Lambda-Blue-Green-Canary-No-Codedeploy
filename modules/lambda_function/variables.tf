@@ -55,12 +55,6 @@ variable "function_version" {
   default     = null
 }
 
-variable "routing_config" {
-  description = "Canary routing config. Map of version number to traffic weight (0.0 to 1.0). Leave null for standard deployment"
-  type        = map(number)
-  default     = null
-}
-
 variable "dynamodb_table_arn" {
   description = "ARN of the DynamoDB table the function needs access to"
   type        = string
