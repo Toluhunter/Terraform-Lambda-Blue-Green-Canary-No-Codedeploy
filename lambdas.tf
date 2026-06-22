@@ -42,7 +42,7 @@ module "create_note" {
   runtime          = "python3.12"
   filename         = data.archive_file.create_note.output_path
   source_code_hash = data.archive_file.create_note.output_base64sha256
-  function_version = "1"
+  function_version = "2"
 
   environment_variables = {
     TABLE_NAME = aws_dynamodb_table.notes.name
@@ -61,6 +61,7 @@ module "get_note" {
   filename         = data.archive_file.get_note.output_path
   source_code_hash = data.archive_file.get_note.output_base64sha256
   function_version = "1"
+  routing_config   = { "2" = 0.1 }
 
   environment_variables = {
     TABLE_NAME = aws_dynamodb_table.notes.name
