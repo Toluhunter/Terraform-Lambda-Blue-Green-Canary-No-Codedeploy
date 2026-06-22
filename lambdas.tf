@@ -42,6 +42,7 @@ module "create_note" {
   runtime          = "python3.12"
   filename         = data.archive_file.create_note.output_path
   source_code_hash = data.archive_file.create_note.output_base64sha256
+  function_version = "1"
 
   environment_variables = {
     TABLE_NAME = aws_dynamodb_table.notes.name
@@ -59,6 +60,7 @@ module "get_note" {
   runtime          = "python3.12"
   filename         = data.archive_file.get_note.output_path
   source_code_hash = data.archive_file.get_note.output_base64sha256
+  function_version = "1"
 
   environment_variables = {
     TABLE_NAME = aws_dynamodb_table.notes.name
@@ -76,6 +78,7 @@ module "list_notes" {
   runtime          = "python3.12"
   filename         = data.archive_file.list_notes.output_path
   source_code_hash = data.archive_file.list_notes.output_base64sha256
+  function_version = "1"
 
   environment_variables = {
     TABLE_NAME = aws_dynamodb_table.notes.name
@@ -93,6 +96,7 @@ module "update_note" {
   runtime          = "python3.12"
   filename         = data.archive_file.update_note.output_path
   source_code_hash = data.archive_file.update_note.output_base64sha256
+  function_version = "1"
 
   environment_variables = {
     TABLE_NAME = aws_dynamodb_table.notes.name
@@ -110,6 +114,7 @@ module "delete_note" {
   runtime          = "python3.12"
   filename         = data.archive_file.delete_note.output_path
   source_code_hash = data.archive_file.delete_note.output_base64sha256
+  function_version = "1"
 
   environment_variables = {
     TABLE_NAME = aws_dynamodb_table.notes.name
