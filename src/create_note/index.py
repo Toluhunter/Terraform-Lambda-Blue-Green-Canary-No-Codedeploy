@@ -1,6 +1,7 @@
 import json
 import os
 import uuid
+from datetime import datetime, timezone
 
 import boto3
 
@@ -15,6 +16,7 @@ def handler(event, context):
         "id": str(uuid.uuid4()),
         "title": body.get("title", ""),
         "content": body.get("content", ""),
+        "created_at": datetime.now(timezone.utc).isoformat(),
     }
 
     table.put_item(Item=item)

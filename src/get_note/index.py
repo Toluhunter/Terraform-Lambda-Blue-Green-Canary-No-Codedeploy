@@ -23,6 +23,8 @@ def handler(event, context):
             "body": json.dumps({"message": "Note not found"}),
         }
 
+    item.setdefault("created_at", None)
+
     return {
         "statusCode": 200,
         "headers": {

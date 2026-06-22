@@ -69,4 +69,11 @@ resource "aws_lambda_alias" "live" {
   name             = var.alias_name
   function_name    = aws_lambda_function.this.arn
   function_version = coalesce(var.function_version, aws_lambda_function.this.version)
+
+  dynamic "routing_config" {
+    for_each = var.routing_config != null ? [var.routing_config] : []
+    content {
+      additional_version_weights = routing_config.value
+    }
+  }
 }

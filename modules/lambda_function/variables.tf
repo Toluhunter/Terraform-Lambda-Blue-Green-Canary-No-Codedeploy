@@ -55,6 +55,12 @@ variable "function_version" {
   default     = null
 }
 
+variable "routing_config" {
+  description = "Optional routing configuration for canary deployments"
+  type        = map(number)
+  default     = null
+}
+
 variable "dynamodb_table_arn" {
   description = "ARN of the DynamoDB table the function needs access to"
   type        = string
